@@ -5,11 +5,19 @@
 	}
 
 body    {
-            background: url("") no-repeat fixed;
-            background-size: 500px;
+
             background-color: #101010;
             background-position: bottom;
     }
+
+.index-header {
+			margin: 1%;
+	    background-image: url(../images/reindeer.jpg);
+	    height: 64vh;
+	    background-repeat: no-repeat;
+	    background-size: cover;
+	    border-radius: 1.2vw;
+}
 
 hr{
     width:80%;
