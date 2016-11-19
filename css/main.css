@@ -12,6 +12,10 @@ html    {
 
     }
 
+body {
+  background: black;
+}
+
 hr{
     width:80%;
 }
