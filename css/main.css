@@ -4,17 +4,13 @@
 
 	}
 
-html    {
+body    {
             background: url("") no-repeat fixed;
             background-size: 500px;
             background-color: #101010;
             background-position: bottom;
 
     }
-
-body {
-  background: black;
-}
 
 hr{
     width:80%;
