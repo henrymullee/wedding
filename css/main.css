@@ -183,6 +183,6 @@ float:center;
 @media only screen and (max-width: 500px) {
 	table {
 		border-collapse: separate;
-		/*border-spacing: 240px 0;*/
+		border-spacing: 10px 0;
 	}
 }
