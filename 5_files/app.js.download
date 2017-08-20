@@ -1,0 +1,917 @@
+// Foundation JavaScript
+// Documentation can be found at: http://foundation.zurb.com/docs
+//$(document).foundation();
+/*if(typeof($(document).foundation) != "undefined")
+{
+$(document).foundation({
+  orbit: {
+    animation: 'slide',
+    timer_speed: 1000,
+    pause_on_hover: true,
+    animation_speed: 500,
+    navigation_arrows: true,
+    bullets: false,
+	  timer: false,
+		slide_number: false,
+variable_height: true
+  }
+});
+
+}*/
+
+//Favicon
+ var cdnHost;
+ if(typeof ns('cms') != 'undefined' && typeof ns('cms').cdn != 'undefined') {
+	    cdnHost = ns('cms').cdn;
+ }
+jQuery(document).ready(function($){
+
+ loadFavicon = function(href) {
+     var favIconLink = $("<link rel='shortcut icon' type='image/x-icon' href='"+cdnHost+href+"'>");
+     $("head").append(favIconLink); 
+ };
+ if(typeof cobrandFavicon != "undefined" && cobrandFavicon != ""){
+    loadFavicon(cobrandFavicon);
+ }
+ else if(typeof Favicon != "undefined" && Favicon != ""){
+    loadFavicon(Favicon);
+ }
+ 
+ var pageType = ns('cms').monetatePageType;
+ window.monetateQ = window.monetateQ || [];
+ window.monetateQ.push([
+    "setPageType",
+    pageType
+ ]);
+ window.monetateQ.push([
+    "trackData"
+ ]);
+});
+
+$(document).foundation();
+
+
+// Product details page: set height to the div based on width
+
+function setImageHeight(divName, listName, ImgName) {
+    var divWidth = $(divName).width();
+
+    if(divName == '.product-thumbnails > li') {
+	//console.log('Enter 1');
+		if ( !$('.product-thumbnails > li').length ){
+		//	console.log('Enter 2');	
+			divWidth = $('.product-thumbnails').width();
+		}
+	}
+
+    if(divWidth == 0)
+           divWidth = $('.pdp-main').width();
+
+    if(listName!="") {
+      $(divName).height(divWidth); 
+
+      $(listName).height(divWidth);
+      $(listName).width(divWidth);
+    }else {
+      $(divName).height(divWidth);     
+    }
+    $(ImgName).css("max-width", divWidth);
+    $(ImgName).css("max-height", divWidth);
+}
+
+$(window).load(function() {
+    //$(".lockups .tile-carousel").css("max-height",$(".lockups .tile-carousel .product-tiles.owl-carousel .owl-item").height()+"px");
+    setImageHeight("#product-height", "#product-height > .active", "#product-height > .active > img");
+    setImageHeight(".product-thumbnails > li", ".product-thumbnails > li a", ".product-thumbnails > li > a > img");
+    setImageHeight(".product-thumbnails-med > li", ".product-thumbnails-med > li a", ".product-thumbnails-med > li > a > img");
+    setImageHeight(".product-thumbnails > li", ".product-thumbnails > li a", ".product-thumbnails > li > a > div.mug-thumb > img");
+    setImageHeight(".product-thumbnails-med > li", ".product-thumbnails-med > li a", ".product-thumbnails-med > li > a > div.mug-thumb > img");
+    $(".two-tile-video-js-1").css("height",$("#"+$("#two-tile-video-container-1").children().attr("id")).parent().parent().siblings().height() + "px");
+    $(".two-tile-video-js-2").css("height",$("#"+$("#two-tile-video-container-2").children().attr("id")).parent().parent().siblings().children().height() + "px");
+	$("#owlPdp .owl-item").css("line-height",$("#product-height").height()+"px");
+	
+	   $(".three-tile-video-js-1").css("height",$("#"+$("#three-tile-video-container-1").children().attr("id")).parent().parent().siblings().height() + "px");
+		$(".three-tile-video-js-2").css("height",$("#"+$("#three-tile-video-container-2").children().attr("id")).parent().parent().siblings().height() + "px");
+		$(".two-tile-video-js-1").css("height",$("#"+$("#two-tile-video-container-1").children().attr("id")).parent().parent().siblings().height() + "px");
+		 $(".two-tile-video-js-2").css("height",$("#"+$("#two-tile-video-container-2").children().attr("id")).parent().parent().siblings().children().height() + "px");
+
+	$(window).on("orientationchange resize",function(){
+		setTimeout(function(){
+			$(".three-tile-video-js-1").css("height",$("#"+$("#three-tile-video-container-1").children().attr("id")).parent().parent().siblings().height() + "px");
+			$(".three-tile-video-js-2").css("height",$("#"+$("#three-tile-video-container-2").children().attr("id")).parent().parent().siblings().height() + "px");
+			$(".two-tile-video-js-1").css("height",$("#"+$("#two-tile-video-container-1").children().attr("id")).parent().parent().siblings().height() + "px");
+			 $(".two-tile-video-js-2").css("height",$("#"+$("#two-tile-video-container-2").children().attr("id")).parent().parent().siblings().children().height() + "px");
+	}, 1000);
+    });
+		
+});
+
+//category pages 
+
+$(document).ready(function(){
+	
+			$(".three-tile-video-js-1").css("height",$("#"+$("#three-tile-video-container-1").children().attr("id")).parent().parent().siblings().height() + "px");
+		$(".three-tile-video-js-2").css("height",$("#"+$("#three-tile-video-container-2").children().attr("id")).parent().parent().siblings().height() + "px");
+		//$(".three-tile-video-js-2").css("height",$("#three-tile-video-container-2").parent().siblings().height() + "px");
+		$(".two-tile-video-js-1").css("height",$("#"+$("#two-tile-video-container-1").children().attr("id")).parent().parent().siblings().height() + "px");
+		$(".two-tile-video-js-2").css("height",$("#"+$("#two-tile-video-container-2").children().attr("id")).parent().parent().siblings().children().height() + "px");
+				
+});
+
+
+$(function() {
+
+setImageHeight("#product-height", "#product-height > .active", "#product-height > .active > img");
+setImageHeight(".product-thumbnails > li", ".product-thumbnails > li a", ".product-thumbnails > li > a > img");
+setImageHeight(".product-thumbnails-med > li", ".product-thumbnails-med > li a", ".product-thumbnails-med > li > a > img");
+$("#owlPdp .owl-item").css("line-height",$("#product-height").height()+"px");
+$("#product-height .orbit-container").css("overflow", "hidden");
+$("#product-height .orbit-container").height($("#product-height").width());
+$("#product-height .orbit-container").height($("#product-height").width());
+
+ if($('#header-offcanvas-menu').hasClass('main-offcanvas')){
+	$("body").addClass("f-topbar-fixed");
+}
+
+/* Offcanvas add scrollbar if window height is lower than the content 
+    var windowH = $(window).height();
+    var wrapperH = $('ul.off-canvas-list').height();
+    $('ul.off-canvas-list').css("overflow-y","scroll");
+    if(windowH < wrapperH) {         
+        $('ul.off-canvas-list').css({
+            'height':($(window).height())-20+'px'
+        });
+    }   
+    
+     $(window).resize(function(){
+        var windowH = $(window).height();
+        var wrapperH = $('ul.off-canvas-list').height();
+        if(windowH > wrapperH) {         
+            $('ul.off-canvas-list').css({'height':'auto'});
+        } else {
+            $('ul.off-canvas-list').css({'height':($(window).height())-20+'px'});
+        }         
+    }); */
+});
+
+
+// Tile Ratio START
+
+ 
+  var tile4Width = $(".tile-4").width();
+  var tile4Height = (450/690) * tile4Width;
+  tile4Height = tile4Height.toFixed();
+	
+	//if(tile4Width)
+  $(".tile-4 > .variation-1").height(tile4Height);
+  $(".tile-4 > .variation-2").height(tile4Height);
+  $(".tile-4 > .variation-1").width(tile4Width);
+  $(".tile-4 > .variation-2").width(tile4Width);
+  
+  $( window ).resize(function() {
+
+	var tile4Width = $(".tile-4").width();
+    	var tile4Height = (450/690) * tile4Width;
+	tile4Height = tile4Height.toFixed();
+    
+  	$(".tile-4 > .variation-1").height(tile4Height);
+  	$(".tile-4 > .variation-2").height(tile4Height);
+  	$(".tile-4 > .variation-1").width(tile4Width);
+  	$(".tile-4 > .variation-2").width(tile4Width);  
+	
+       setImageHeight("#product-height", "#product-height > .active", "#product-height > .active > img");
+       setImageHeight(".product-thumbnails > li", ".product-thumbnails > li a", ".product-thumbnails > li > a > img");
+       setImageHeight(".product-thumbnails-med > li", ".product-thumbnails-med > li a", ".product-thumbnails-med > li > a > img");
+			setImageHeight(".product-thumbnails > li", ".product-thumbnails > li a", ".product-thumbnails > li > a > div.mug-thumb > img");
+			setImageHeight(".product-thumbnails-med > li", ".product-thumbnails-med > li a", ".product-thumbnails-med > li > a > div.mug-thumb > img");
+       $("#product-height .orbit-container").height($("#product-height").width());
+       $("#owlPdp .owl-item").css("line-height",$("#product-height").width()+"px"); 
+       $("#product-height").css("height",$("#product-height").width()+"px"); 
+       if(navigator.platform.indexOf("iPhone") != -1) {
+         $(".pdp-main").css("margin-bottom","0px");  
+	 $("#owlPdp .owl-item").css("line-height",$("#owlPdp .owl-item").width()+"px");
+         $("#product-height").css("height","auto");       
+       }		    
+  });
+
+
+$(window).on("orientationchange",function() {
+       setImageHeight("#product-height", "#product-height > .active", "#product-height > .active > img");
+       setImageHeight(".product-thumbnails > li", ".product-thumbnails > li a", ".product-thumbnails > li > a > img");
+       setImageHeight(".product-thumbnails-med > li", ".product-thumbnails-med > li a", ".product-thumbnails-med > li > a > img");
+       if(navigator.platform.indexOf("iPhone") != -1) {
+	 $(".pdp-main").css("margin-bottom","0px");
+	 $("#owlPdp .owl-item").css("line-height",$("#owlPdp").closest('.columns').width()+"px");
+         $("#product-height").css("height","auto");       
+       }
+});
+
+// Tile Ratio END
+
+
+// Header Dropdown start
+
+$( ".dropdown-menu" ).hover(function() {
+  $('.main-dropdown').css("visibility", "visible");
+  $('.dropdown-menu > a > .dropdown-arrow').css("visibility", "visible");
+});
+
+$( ".main-dropdown > .close" ).click(function() {
+  $('.main-dropdown').css("visibility", "hidden");
+  $('.dropdown-menu > a > .dropdown-arrow').css("visibility", "hidden");
+});
+
+// Header Dropdown end
+
+// Your Account start 
+	$("dl.account-tabs > dd").click(function(){
+        $(this).slideDown(function() {
+            $(this).show().parent().append(this);
+        });
+    }); 
+ 
+// Your Account end
+
+
+// Photobooks Page 
+
+		$(".link").click(function(){
+			if($(this).hasClass("fadeInForward")) {		
+				$(this).removeClass("fadeInForward").addClass("fadeOutback");
+			}
+			if($(".child").hasClass("slidePageBackLeft")) {
+				$(".child").removeClass("slidePageBackLeft").addClass("slidePageInFromRight");
+			}else{
+				$(".child").addClass("slidePageInFromRight");		
+			}
+		});
+		$(".close").click(function(){
+			$(".link").addClass("fadeInForward");
+			$(".child").removeClass("slidePageInFromRight").addClass("slidePageBackLeft");
+		});
+
+$(".tile-3 .variation-1").height($(".tile-3").width());
+$(".tile-3 .variation-1 .top-section img").css("max-height", ($(".tile-3").width()/2)-10);
+
+$(window).resize(function(){
+    $(".tile-3 .variation-1").height($(".tile-3").width());
+
+$(".tile-3 .variation-1 .top-section img").css("max-height", ($(".tile-3").width()/2)-10);
+});
+
+// Photobooks page end
+
+//header toggle off-canvas
+
+$(".header-off-canvas #ls-row-2").append('<a class="exit-off-canvas"></a>');
+//$(".header-off-canvas #ls-row-1").addClass("headerpadding");
+
+$(".header .left-off-canvas-menu").height($(document).height());
+
+$(window).resize(function(){
+
+$(".header .left-off-canvas-menu").height($(document).height());
+});
+
+// Header off-canvas for library team
+$(".header-off-canvas .left-off-canvas-toggle").click(function(){
+    if($(".photo-Org").hasClass("move-right")){
+        $(".photo-Org").removeClass("move-right");
+    }else{
+        $(".photo-Org").addClass("move-right");
+    }
+});
+
+/*alert($(".photo-Org .exit-off-canvas"));
+$(".photo-Org .exit-off-canvas").click(function(){
+alert("test");
+	$(".photo-Org").removeClass("move-right");
+});*/
+
+$(".photo-Org .exit-off-canvas").on("click", function(){
+alert("test");
+	$(".photo-Org").removeClass("move-right");
+});
+
+// Accordion
+/*$(".tiles-links.accordion dd").click( function() {
+	$('.tile-active').not(this).children('.content').removeClass('active');
+	$('.tile-active').not(this).removeClass('tile-active');
+	$(this).children('.content').toggleClass('active');
+	$(this).toggleClass('tile-active');
+});*/
+
+$(".tiles-links.accordion dd").click( function() {
+	if($(this).children('.content').hasClass('active')) {	    
+	  $(this).children('.content').removeClass('active');	    
+	  }else {
+	  $(".tiles-links.accordion dd .content").removeClass('active')
+	  $(this).children('.content').addClass('active');
+	}
+	$('.tile-active').not(this).removeClass('tile-active');
+	$(this).toggleClass('tile-active');
+});
+
+$(".category-shipping .accordion dd.accordion-navigation a.shipping-price-accordion").click( function() {
+	//$(this).parent().addClass('caret-active'); 
+	if($(this).parent().children('.content').hasClass('active')) {
+		$(this).parent().removeClass('caret-active');
+	}else{
+		$(this).parent().addClass('caret-active');
+	}
+});
+
+function relative_sticky(id, topSpacing){
+
+if(!topSpacing){ var topSpacing = 0; }
+var el_top = parseFloat(document.getElementById(id).getBoundingClientRect().top);
+    el_top = el_top - parseFloat(document.getElementById(id).style.top);
+    el_top = el_top * (-1);
+    el_top = el_top + topSpacing;
+
+    if(el_top > 0){
+    document.getElementById(id).style.top = el_top + "px";
+    } else{
+    document.getElementById(id).style.top = "0px";
+    }
+}
+
+
+
+//window.onscroll = function(){
+    //relative_sticky("header-offcanvas-menu", 0);
+    //$("#header-offcanvas-menu").css("top", $('#header-offcanvas-menu').offset().top);	
+//}
+
+//overlay
+/*
+if($('#pickUpInStore').length) {
+	$('.tabs').height($('.panel-container').height());
+}*/
+
+$( document ).ready(function() {
+	
+	$(".cms .four-tile-lockup .tile-l4-v1.hide").remove();
+	$('.product-tiles.owl-carousel .hide').remove();
+	
+	if(document.location.protocol == "https:" && document.location.hostname == 'new.snapfish.com'){
+	    $( 'head' ).append('<link rel="dns-prefetch" href="//store1.snapfish.com"><link rel="dns-prefetch" href="//store2.snapfish.com"><link rel="dns-prefetch" href="//store3.snapfish.com"><link rel="dns-prefetch" href="//store4.snapfish.com">');
+	}
+	
+	// Setting cookie when user click on pop-out link from Classic site from 2.0
+	$('#yourAccountClassicSiteLink').click(function() {
+		document.cookie = "v2msg=isv1;domain="+location.hostname.substring(location.hostname.indexOf('.'))+";path=/";
+	});
+        $('.classic-tab .pop-out').click(function() {
+		document.cookie = "v2msg=isv1;domain="+location.hostname.substring(location.hostname.indexOf('.'))+";path=/";
+
+               if($(this).attr("navurl")){
+                  var lHost = store.legacyPodHost;
+                  if(lHost){
+		          var firstDotIdx =  store.legacyPodHost.indexOf(".");
+			  var domainPrefix = store.legacyPodHost.substring(0,firstDotIdx);
+		         if(lHost && (domainPrefix != "www") && (ns('cms').storeEnv == "production"))
+			 {
+		           lHost = "www"+store.legacyPodHost.substring(firstDotIdx);
+			 }
+                 }
+
+		  if(!lHost || lHost == "" || lHost == "null") {
+                lHost = document.location.host;
+            }
+
+                  if(lHost.indexOf("new")!=-1)
+                     lHost = lHost.replace("new","www");
+
+                   document.location.href = location.protocol+"//"+lHost+"/"+ns('cms').cobrand+$(this).attr("navurl");
+               }
+
+	});
+	
+	// cookiePrivacyInfoDiv
+	$('.cookiePrivacyInfoDiv a').click(function() {
+	    var domainName = window.location.hostname.substr(window.location.hostname.indexOf('.'));
+		domainName = "domain="+domainName;
+		var d = new Date();
+	    d.setTime(d.getTime() + (180*24*60*60*1000));
+	    var expires = "expires="+d.toUTCString();
+	    document.cookie = "cookiePrivacyInfo=show;"+ domainName+ ";"+expires+";path=/"; 
+	    $('.cookiePrivacyInfoDiv').hide();
+    });
+
+    if(typeof getCookieVal != 'undefined'){
+	    var cookiePrivacyInfoValue = getCookieVal('cookiePrivacyInfo');  	
+		if (cookiePrivacyInfoValue !="show") {
+		    $('.cookiePrivacyInfoDiv').show();
+		} 
+	}
+	
+    //Append prettySocial.js based on if social-container div exists
+	if($(".social-container .prettySocial")[0]){
+		appendJSDynamic(cdnHost+'/resources/js/widgets/social-plugins/prettySocial-master/jquery.prettySocial.js',"defer");
+	}
+	    
+	//$('html').attr( "manifest", ns('cms').cdn+"/resources/js/manifest.appcache" );
+	
+	//$(".cms-offcanvas").attr("data-offcanvas", "");
+	//$(document).foundation('offcanvas', 'reflow');
+	
+	// extend the footer when pages has white space below of the footer
+	/*
+	$(window).load(function(){
+		setTimeout(function(){ 
+			extendFotter();
+		}, 3000);
+		$(window).on("resize scroll",function(e){
+			if($(".globalfooter").hasClass("extend-to-bottom")){
+				$(".extend-to-bottom").css("padding-bottom", '0');
+			}
+			extendFotter();
+		});
+		function extendFotter(){
+			if($(".globalfooter").hasClass("extend-to-bottom")){
+				var windowHeight = $(window).height();
+				var pageHeight = $('html').height();
+				var diffValue = windowHeight - pageHeight;
+				if(diffValue > 0){
+					$(".extend-to-bottom").css("padding-bottom", diffValue);
+				} else {
+					$(".extend-to-bottom").css("padding-bottom", '0');
+				}
+			}
+		}
+	});*/
+	
+	// show classic tab based on classicSiteFlag (feature.properties)
+	if(typeof ns('cms').classicSiteFlag != 'undefined' && ns('cms').classicSiteFlag=='true'){
+		if($('.classic-tab').hasClass('hide')){
+			$('.classic-tab').show();
+		}
+	}
+	
+	// show feeback overlay based on feedbackFlag (feature.properties)
+	if(typeof ns('cms').feedbackFlag != 'undefined' && ns('cms').feedbackFlag=='true'){
+		/*$('.help-feedback').hide();
+		$('.form-panel').hide();
+		if (!$("link[href*='feedback-classic-site-link']").length) {
+			var fbhref= cdnHost+'/resources/css/header/feedback-classic-site-link/feedback-classic-site-link.css';
+		    $("<link href='"+fbhref+"' rel='stylesheet'>").appendTo("head");
+		}*/
+		if($('.customer-feedback-form').hasClass('hide')){
+			$('.customer-feedback-form').show();
+		}
+	}
+	
+	// Foresee code starts
+	if(typeof ns('cms').foreseeSurveyEnabled != 'undefined' && ns('cms').foreseeSurveyEnabled=='true'){
+		// Instructions: please embed this snippet directly into every page in your website template.
+	    // For optimal performance, this must be embedded directly into the template, not referenced
+	    // as an external file.
+	
+	    // Answers Cloud Services Embed Script v1.02
+	    // DO NOT MODIFY BELOW THIS LINE *****************************************
+	    ;(function (g) {
+	        var d = document, i, am = d.createElement('script'), h = d.head || d.getElementsByTagName("head")[0],
+	                aex = {
+	                    "src": "//gateway.answerscloud.com/snapfish/production/gateway.min.js",
+	                    "type": "text/javascript",
+	                    "async": "true",
+	                    "data-vendor": "acs",
+	                    "data-role": "gateway"
+	                };
+	        for (var attr in aex) { am.setAttribute(attr,aex[attr]); }
+	        h.appendChild(am);
+	        g['acsReady'] = function () {var aT = '__acsReady__', args = Array.prototype.slice.call(arguments, 0),k = setInterval(function () {if (typeof g[aT] === 'function') {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};
+	    })(window);
+	    // DO NOT MODIFY ABOVE THIS LINE *****************************************
+    }
+    // Foresee staging code end
+    
+    // HeatMap code starts
+	/* removing heatmap code, as the account is deactivated and not usefull in production now.
+	if (typeof ns('cms').storeEnv != 'undefined' && ns('cms').storeEnv=='production' && typeof ns('cms').cobrand != 'undefined' && ns('cms').cobrand=='snapfish' && location.href.indexOf('/cart/') == -1){
+		(function() {
+			var hm = document.createElement('script'); hm.type ='text/javascript'; hm.async = true;
+			hm.src = ('++u-heatmap-it+log-js').replace(/[+]/g,'/').replace(/-/g,'.');
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s);
+		})();
+	}
+	*/
+	// HeatMap code end
+
+    // persistUserSessionOnCrossDomains code starts
+    if (typeof ns('cms').persistUserSessionOnCrossDomains != 'undefined' && ns('cms').persistUserSessionOnCrossDomains=='true'){
+		
+			$('.countrylistDropDown .country a').click(function(event) {
+
+                event.preventDefault();
+                
+                var countryLink = $(this).attr('href');
+                var GSIDCookie;
+
+                if(typeof getCookieVal != 'undefined'){
+                    GSIDCookie = getCookieVal('GSID');
+                }
+                if(typeof GSIDCookie != 'undefined' || GSIDCookie.trim() == "" || GSIDCookie == "null"){
+                	GSIDCookie=store.gsid;
+                }
+                
+                $("body").append("<form id='countryForm' method='POST' action=''><input type='hidden' id='countryFormGSID' name='GSID' value='' /><input type='hidden' name='countryChanged' value='true' /> </form>");
+                $("#countryForm").attr('action', countryLink);
+                $("#countryForm #countryFormGSID").attr('value', GSIDCookie);
+                $( "#countryForm").submit();
+
+            });
+
+		}
+	
+   // persistUserSessionOnCrossDomains code end
+
+  // Starts : set dynamic max-height overlays's
+  setOverlayContentHeight();
+  
+  $(window).resize(function() {
+     setOverlayContentHeight();
+  });
+
+  function setOverlayContentHeight(){
+     if($('.cms.tacoverlay .overlay-flow')){
+        $('.cms.tacoverlay .overlay-flow').css('max-height', $(window).height()-120);
+     }
+  }
+
+  // end : set dynamic max-height overlays's  
+
+
+  // tool-tip hide and show code start
+	var clickedImg = "";
+	$(".tool-tip").children("img").on("click", function(){
+		if(clickedImg!='' && clickedImg == $(this).attr('id') && $(this).next().css('display') == 'block') {
+			 $(this).next().hide();   
+		}else{
+			$(".tool-tip-content").hide();
+			$(this).next().show();    
+		}		
+		clickedImg = $(this).attr('id');
+
+
+		/*if($(".tool-tip-content").css('display') == 'none'){
+			$(".tool-tip-content").show();
+		}else{
+			$(".tool-tip-content").hide();
+		}*/
+	    });
+	$('html').click(function(e) {
+		  //if clicked element is not your element and parents aren't your div
+		  if (e.target.id != 'image-tooltip' && $(e.target).parents('#image-tooltip').length == 0) {
+			  if($(".tool-tip-content").css('display') == 'block'){
+				  e.stopPropagation();
+			  }
+		  }
+	});
+	 $(document).bind('click touch', function(event) {
+	  if (!$(event.target).parents().addBack().is($(".tool-tip").children("img"))) {
+	    $(".tool-tip-content").hide();
+	  }
+	});
+	// tool-tip hide and show code end
+	
+});
+
+
+
+// Copied from footer.js
+$( document ).ready(function() {
+    if(document.getElementById("feedbackForm"))
+	    document.getElementById("feedbackForm").action = "javascript:void(0);";
+    $('#globalFooterHelp').on('click', function() {
+		if(typeof store != 'undefined' && store.supportUrl){
+   			document.location.href = store.supportUrl.replace("{brandHost}",location.hostname);
+   		}
+	});
+});
+
+
+$( document ).ready(function() {
+ // Code to call smart banner only or Android devices
+ if(typeof showsmartbanner != 'undefined' && showsmartbanner=='true' && navigator.userAgent.match(/Android/i))
+{
+		 appendJSDynamic(cdnHost+'/resources/js/jquery-plugins/smart-banner/jquery.smartbanner.js',"defer");
+		 appendCSSDynamic(cdnHost+'/resources/css/jquery-plugins/smart-banner/jquery.smartbanner.css');
+ }
+ 
+});
+
+/* To remove Default Font based on the cookie starts*/
+renderDefaultFont(); // To remove default-font-to-render elements
+
+$(window).load(function(){ // To remove the addtional <style> tag added by ModPageSpeedFilter
+	renderDefaultFont();
+	$(document).foundation();
+});
+
+if(document.cookie.indexOf("async_fl_") == -1){ 
+  document.cookie = "async_fl_=true;domain="+location.hostname.substring(location.hostname.indexOf('.'))+";path=/";
+}
+
+function renderDefaultFont() {
+	if(document.cookie.indexOf("async_fl_") != -1)
+	{ // async_fl_ is true
+		checkDefaultFontElements();
+	}else{ // async_fl_ is false
+		console.log("in settimeout");
+		setTimeout(function(){
+			checkDefaultFontElements();
+		}, 1000); // time in milliseconds
+	}
+}
+
+function checkDefaultFontElements(){
+	if(document.getElementsByClassName("default-font-to-render").length >0){
+		console.log("found: default-font-to-render");
+		 var elements = document.getElementsByClassName("default-font-to-render");
+		 console.log("length before remove: "+elements.length);
+		 while(elements.length > 0){
+			    elements[0].parentNode.removeChild(elements[0]);
+		        console.log("removed: default-font-to-render");
+		    }
+		 console.log("length after remove: "+elements.length);
+	}
+}
+/* To remove Default Font based on the cookie ends*/
+
+//To append JS Dynamically to head
+function appendJSDynamic(src,attr){
+	var jsref=document.createElement('script');
+	 jsref.setAttribute("type","text/javascript");
+	 if(attr == "defer"){
+		 jsref.setAttribute("defer","defer"); 
+	 }
+	 if(attr == "async"){
+		 jsref.setAttribute("async","async"); 
+	 }
+	 jsref.setAttribute("src", src);
+    document.head.appendChild(jsref);
+}
+
+// To append CSS Dynamically to head
+function appendCSSDynamic(src){
+
+    var cb = function() { 
+	var l = document.createElement('link'); 
+	l.rel = 'stylesheet'; 
+	l.href = src; 
+	var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h); }; 
+	var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame; 
+	if (raf) raf(cb); 
+	else window.addEventListener('load', cb);
+} 
+
+// Copied from footerOverlay.js
+//function for dynamic content in overlay
+function getOverlayContent(linkId,linkTarget)
+{
+	
+   var overlayDivs=document.getElementsByClassName("div_id");
+	overlayDivs[0].id = linkId;
+	$('#linkId').foundation('reveal', 'open');
+	var innerDivId="inner"+linkId;
+	var innerDivs=document.getElementsByClassName("inner")
+	innerDivs[0].id = innerDivId;
+	var targetArray =linkTarget.split(":");
+	if(targetArray.length > 1)
+	{
+		$.get( targetArray[1], function( data ) {
+			innerDivs[0].innerHTML = data;
+				});
+	}
+	else
+	{
+		$.get( targetArray[0], function( data ) {
+			innerDivs[0].innerHTML = data;
+				});
+	}	
+  var loadingTextObj = "";
+  if (document.getElementById("loadingTxt_hidden") != null)
+      loadingTextObj = document.getElementById("loadingTxt_hidden").value;
+  if (loadingTextObj == null || loadingTextObj.trim() == "" || loadingTextObj == 'undefined' || loadingTextObj == undefined)
+		loadingTextObj = "Loading..."
+	innerDivs[0].innerHTML = "<h5 class='text-center'>"+loadingTextObj+"</h5>";
+}
+
+/*
+ * changeSEOPageTitle function will take title value and replace the first option in page title
+ */
+
+changeSEOPageTitle = function(longTitle){
+	try{
+		var pageTitle = document.title;
+		var values = pageTitle.split("|");
+		values = values.map(Function.prototype.call, String.prototype.trim);
+	
+		Array.prototype.contains = function(element){
+			element = element.toString().toLowerCase();
+			var thisValue = this.toString().toLowerCase();
+		    return thisValue.indexOf(element) > -1;
+		};
+	
+		if(!values.contains(longTitle)){
+			values[0] = longTitle;
+			var updateTitle = values.join([separator = ' | ']);
+		    document.title = updateTitle;
+		    if($('meta[property="og:title"]').attr('content').length != 0){
+		    	$('meta[property="og:title"]').attr('content', updateTitle);
+		    }
+		}
+	}catch(e){
+		businessLogger.error().key("app.js").noodle().env().service("store").errorCode("PageTitle_Update_Failed").errorId().description("Failed to updated the page title in PDP pages").context().origin("store").logMessage();
+	}
+}
+
+// setting acctID coockie for Zendesk SSO
+if (typeof store != 'undefined' && typeof store.acctId != 'undefined') {
+	document.cookie = "acctId="+store.acctId+";domain="+location.hostname.substring(location.hostname.indexOf('.'))+";path=/";
+}
+
+//Fix to prevent zooming of pages in Ipad version above 10
+document.addEventListener('gesturestart', function (e) {
+    e.preventDefault();
+});
+
+/**
+ * Starts :Created for client side performance tracking
+ */
+var storeApp = storeApp || {};
+storeApp.PageLoadTrackingUtils = {
+    getPageLoadingTimes: function(){
+        if(!window.performance || !window.performance.timing){
+            return;
+        }
+        // Navigation Timing
+        var t = window.performance.timing,
+            dnsLookupTime = t.domainLookupEnd - t.domainLookupStart,
+            connectionTime = t.connectEnd - t.connectStart,
+            secureConnectionTime = (t.secureConnectionStart > 0 ? (t.connectEnd - t.secureConnectionStart) : 0),
+            serverWaitingTime = t.responseStart - t.requestStart,
+            timeToFirstByte = t.responseStart - t.navigationStart,
+            responseLoadingTime = t.responseEnd - t.responseStart,
+            requestAndResponseWaitTime = t.responseEnd - t.requestStart,
+            pageWaitTime = t.responseEnd - t.navigationStart,
+            domLoading = t.domLoading - t.navigationStart,
+            domInteractive = t.domInteractive - t.navigationStart,
+            domContentLoadTime = t.domContentLoadedEventStart - t.navigationStart,
+            pageLoadTime = t.loadEventStart - t.navigationStart;
+        var firstPaintTime = 0;
+        if(window.chrome && window.chrome.loadTimes){
+            firstPaintTime = (chrome.loadTimes().firstPaintTime * 1000) - t.navigationStart;
+        }else if (t.msFirstPaint) {
+            firstPaintTime = t.msFirstPaint - t.navigationStart;
+        }
+        //if it's in micro-seconds resolutions, convert it into milliseconds
+        if(firstPaintTime % 1 !== 0)
+            firstPaintTime = (firstPaintTime * 1000);
+        return {
+            dnsLookupTime : dnsLookupTime,
+            connectionTime : connectionTime,
+            secureConnectionTime: secureConnectionTime,
+            serverWaitingTime : serverWaitingTime,
+            timeToFirstByte : timeToFirstByte,
+            responseLoadingTime : responseLoadingTime,
+            requestAndResponseWaitTime: requestAndResponseWaitTime,
+            pageWaitTime: pageWaitTime,
+            domContentLoadTime : domContentLoadTime,
+            pageLoadTime : pageLoadTime,
+            domLoading : domLoading,
+            domInteractive : domInteractive,
+            firstPaintTime : firstPaintTime
+        };
+    },
+    getPageResourceLoadingTimes: function(upToTime){
+        //window.performance.timing.domInteractive - window.performance.timing.navigationStart
+        var resourceLoadingTimes = [];
+        // Resource Timing
+        if(window.performance == undefined || !performance.getEntriesByType)
+            return [];
+        var resources = performance.getEntriesByType("resource");
+        if(resources == undefined || resources.length <= 0)
+            return;
+
+        for(var i=0; i < resources.length; i++){
+            if((resources[i].startTime || resources[i].fetchStart) && upToTime){
+                var startTime = resources[i].startTime || resources[i].fetchStart;
+                //log only resources which gets initiated before passed upto time
+                if(startTime > upToTime)
+                    break;
+            }
+
+            var resource = {};
+            resource.name = resources[i].name;
+
+            //duration(wait time)
+            resource.duration = resources[i].duration;
+
+            // Redirect time
+            var t = resources[i].redirectEnd - resources[i].redirectStart;
+            resource.redirectTime = t;
+
+            // DNS time
+            t = resources[i].domainLookupEnd - resources[i].domainLookupStart;
+            resource.dnsLookupTime = t;
+
+            // TCP handshake time
+            t = resources[i].connectEnd - resources[i].connectStart;
+            resource.connectionTime = t;
+
+            // Secure connection time
+            t = (resources[i].secureConnectionStart > 0) ? (resources[i].connectEnd - resources[i].secureConnectionStart) : "0";
+            resource.secureConnectionTime = t;
+
+            // Response time
+            t = resources[i].responseEnd - resources[i].responseStart;
+            resource.responseLoadingTime = t;
+
+            // Request start until response end
+            t = (resources[i].requestStart > 0) ? (resources[i].responseEnd - resources[i].requestStart) : "0";
+            resource.requestAndResponseWaitTime = t;
+
+            // Start until response end
+            t = (resources[i].startTime > 0) ? (resources[i].responseEnd - resources[i].startTime) : "0";
+            resource.totalResourceWaitTime = t;
+
+            resourceLoadingTimes.push(resource);
+        }
+        return resourceLoadingTimes;
+    },
+    logPageLoadingPerformanceDetails: function(){        
+    	try{
+    		var object = {};
+	        object.pageLoadingNumbers = this.getPageLoadingTimes();
+	        //domLoading ---> firstPaint --> domInteractive --> domContentLoadedEventStart
+	        var upToTime = object.pageLoadingNumbers.firstPaintTime || object.pageLoadingNumbers.domContentLoadTime;
+	        object.pageResourceLoadingNumbers = this.getPageResourceLoadingTimes(upToTime);
+	        if(typeof profilerLogger != "undefined")
+	        {
+				profilerLogger.info().key("app.js").type("performance-metrics").action("logging performance metrics").state("log metrics data").addParameter("metricsData",JSON.stringify(object)).logMessage().postlogToSplunk();
+			}
+	        console.log(object);
+	        //var logger = storeApp.ClientMessageLogger.getLogger('PageLoadTrackingUtils');
+	        //var keyValuePairs = {};
+	        //keyValuePairs[ServiceLogConstants.ERROR_CODE] = "PAGE_LOAD_PROFILE_DETAILS";
+	        //keyValuePairs['DETAILS'] = storeApp.Utils.stringifyJSObjectForSplunk(object);
+	        //keyValuePairs['DETAILS'] = JSON.stringify(object);
+	        //logger.debug("Page performance details",'logPageLoadingPerformanceDetails', keyValuePairs);
+    	}catch(e){
+    		//businessLogger.error().key("app.js").noodle().env().service("store").errorCode("performance-metrics-failed").errorId().description("error in logPageLoadingPerformanceDetails method while execution ").context().origin("store").logMessage();	
+    	}
+        
+    }
+};
+$( document ).ready(function() {
+	try{
+		storeApp.PageLoadTrackingUtils.logPageLoadingPerformanceDetails();
+	}catch(e){
+		//businessLogger.error().key("app.js").noodle().env().service("store").errorCode("performance-metrics-failed").errorId().description("Failed to call logPageLoadingPerformanceDetails on document ready ").context().origin("store").logMessage();
+	}
+}); 
+/**
+ * End :Created for client side performance tracking
+*/
+
+/// Global Dropdown START //
+var globalDropdownInitialise = function(id) {
+	var globalDDWrapper = '#'+id;
+	var globalDDUl = '#'+id+'.sf-global-dropdown ul';
+	var globalDDListItem = '#'+id+'.sf-global-dropdown .clickable';
+	var globalDDSelectedItem = '.selected-option';
+	var disabledClassName = 'disabled';
+
+	// Toggling the List items
+	$(globalDDWrapper).unbind().click(function(e) {
+		if(!$(this).hasClass(disabledClassName)) {
+		  $(e.currentTarget).find('ul').toggle();
+		  $(this).toggleClass('active');
+		}
+	}); 
+
+	// Setting the selected value and adding active on clicking the list items
+	$(globalDDListItem).click(function(){
+		if(!$(this).hasClass(disabledClassName)) {
+			if($(this).attr('value')!='undefined' && $(this).attr('value')!='') {
+		  		$(this).closest(globalDDWrapper).find(globalDDSelectedItem).html($(this).attr('value'));
+		  		$(this).closest(globalDDWrapper).find(globalDDSelectedItem).attr('title',$(this).attr('value'));
+			}
+		  $(globalDDListItem).removeClass('active');
+		  $(this).addClass('active');
+		}
+	});
+
+	// Removing the active class and closing list item on clicking outside 
+	$(document).on("click", function(event){
+		var $trigger = $(globalDDWrapper);
+		if($trigger !== event.target && !$trigger.has(event.target).length){
+		  $(globalDDUl).hide();
+		  $(globalDDWrapper).removeClass('active');
+		}   
+	});
+}
+/// Global Dropdown END //
