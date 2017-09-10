@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<juiceboxgallery>
+<juiceboxgallery 
+
+	useFullscreenExpand="true"
+	cropToFit="false"
+
+>
   <image imageURL="images/10.jpg"
 	thumbURL="thumbs/10.jpg"
 	linkURL="images/10.jpg"
 	linkTarget="_blank"
-	sourcePath="C:\Users\Henry\Desktop\New folder (3)\10.jpg"
-
->
+	sourcePath="C:\Users\Henry\Desktop\New folder (3)\10.jpg">
     <title><![CDATA[The night we met... 29th May 2010]]></title>
-    <caption><![CDATA[Before a night at the University of Birmingham SU, we settled down to watch the Eurovision Song Contest with a couple of pre-drinks. Amy nearly didn't make the night at all having driven back from celebrating Sophie's 16th Birthday at home the night before. Fortunately she did, although she retired early to catch up on her sleep. Little did she know what was to come... Now every year we order a Chinese Takeaway and watch the Euro-and-Australia-vision Song Contest.]]></caption>
+    <caption><![CDATA[Before a night at the UoB SU, we watched the Eurovision Song Contest with some pre-drinks. Amy nearly didn't make the night having driven back from celebrating Sophie's Birthday the night before. Fortunately she did, little did she know what was to come... ]]></caption>
   </image>
   <image imageURL="images/11.jpg"
 	thumbURL="thumbs/11.jpg"
@@ -17,7 +20,7 @@
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\11.jpg">
     <title><![CDATA[First official date as a couple]]></title>
-    <caption><![CDATA[There were a few cinema dates before this (the first of which saw Henry take a detour to the England/Wales border trying to find Crewe) but once it was official, we headed to Chester Zoo. The start of a tradition of finding a zoo wherever we go! ]]></caption>
+    <caption><![CDATA[The start of a tradition of finding a zoo wherever we go! ]]></caption>
   </image>
   <image imageURL="images/15.jpg"
 	thumbURL="thumbs/15.jpg"
@@ -25,7 +28,7 @@
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\15.jpg">
     <title><![CDATA[Amy's 21st Birthday]]></title>
-    <caption><![CDATA[Back to school and Amy began the 3rd year of her LLB at the University of Birmingham whilst Henry was in his 2nd year at University of Central Lancashire. The distance didn't stop Henry surprising Amy by driving to Brimingham to join her 21st Birthday Celebrations.]]></caption>
+    <caption><![CDATA[Henry surprised Amy by driving to Brimingham from Preston to join her 21st Birthday Celebrations.]]></caption>
   </image>
   <image imageURL="images/20.jpg"
 	thumbURL="thumbs/20.jpg"
@@ -33,7 +36,7 @@
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\20.png">
     <title><![CDATA[Disneyland Paris 2011]]></title>
-    <caption><![CDATA[Our first venture abroad took us to the "Happiest Place on Earth" (or one of them at least). This weekend away at the end of February 2011 was the first of our February weekend getaways; now an annual tradition.]]></caption>
+    <caption><![CDATA[This was the first of our February weekend getaways; now an annual tradition.]]></caption>
   </image>
   <image imageURL="images/25.jpg"
 	thumbURL="thumbs/25.jpg"
@@ -41,15 +44,15 @@
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\25.png">
     <title><![CDATA[1 Year Anniversary]]></title>
-    <caption><![CDATA[For our first anniversary we took a trip down to Bournemouth. We hadn't really planned out the trip (a mistake never to be repeated since) and ended up with a Chinese takeaway on Asda picnic plates in our hotel room; and yes, we still have some of the plates and cutlery bought for the occasion!]]></caption>
+    <caption><![CDATA[For our first anniversary we took a trip down to Bournemouth. We hadn't really planned out the trip (a mistake never to be repeated since) and ended up with a Chinese takeaway on Asda picnic plates in our hotel room;  we still have some of the plates and cutlery!]]></caption>
   </image>
   <image imageURL="images/27.jpg"
 	thumbURL="thumbs/27.jpg"
 	linkURL="images/27.jpg"
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\27.png">
-    <title><![CDATA[Henry's 21st Birthday]]></title>
-    <caption><![CDATA[Henry's 21st was set to be a much more civilised affair with the family gathering for a meal at Goldstone Hall. The venue however seemed to have other ideas, plying the guests with Pimms for a least an hour before the food. Needless to say there were a few mishaps during the speeches (and hopefully some lessons learned) but overall a great time was had by all.]]></caption>
+    <title><![CDATA[Henry's 21st Birthday at Goldstone Hall]]></title>
+    <caption><![CDATA[Copious amounts of Pimms led to a few mishaps during the speeches (and hopefully some lessons learned)]]></caption>
   </image>
   <image imageURL="images/35.jpg"
 	thumbURL="thumbs/35.jpg"
@@ -65,7 +68,7 @@
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\38.png">
     <title><![CDATA[Cuba 2012]]></title>
-    <caption><![CDATA[Taking a break from all that relaxing, we took the opportunity to swim with dolphins. After an hour or so in the water, we returned to shore to a lobster dinner. This was the first time Amy tried lobster, after much convincing, and now forms the basis of Henry's argument whenever he's getting her to try something new.]]></caption>
+    <caption><![CDATA[We took the opportunity to swim with dolphins. After an hour or so, we returned to shore to a lobster dinner. This was the first time Amy tried lobster, after much convincing, and now forms the basis of Henry's argument whenever he's getting her to try something new.]]></caption>
   </image>
   <image imageURL="images/40.jpg"
 	thumbURL="thumbs/40.jpg"
@@ -81,7 +84,7 @@
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\52.png">
     <title><![CDATA[Corfu 2014]]></title>
-    <caption><![CDATA[By October 2014 we had both been in full-time employment long enough to need a holiday. We wanted somewhere warm with a beach but also things to do. On our day trip to Corfu Town, we got half way up the Old Fortress (pictured) before the heavens opened and we ended up trapped in the bar for a couple of hours before we had to venture back across town to get the bus back to our hotel. Not exactly a success...]]></caption>
+    <caption><![CDATA[By October 2014 we needed another holiday in the sun.  On our day trip to Corfu Town, we got half way up the Old Fortress (pictured) before the heavens opened and we ended up trapped in the bar for a couple of hours before we had to venture back across town to get the bus back. Not exactly a success...]]></caption>
   </image>
   <image imageURL="images/53.jpg"
 	thumbURL="thumbs/53.jpg"
@@ -89,7 +92,7 @@
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\53.png">
     <title><![CDATA[Copenhagen 2015]]></title>
-    <caption><![CDATA[Our first proper City break in February 2015. A beautiful city but bitterly cold, so much so that we barely spent more than a hour at a time wandering around before we darted back inside to warm back up.]]></caption>
+    <caption><![CDATA[Our first proper City break in February 2015. A beautiful city but bitterly cold!]]></caption>
   </image>
   <image imageURL="images/62.jpg"
 	thumbURL="thumbs/62.jpg"
@@ -97,7 +100,7 @@
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\62.png">
     <title><![CDATA[America 2015]]></title>
-    <caption><![CDATA[After seeing the photographs from Amy & Henry's trip to Walt Disney World in 2014, Debbie, who had said she never wanted to do Disney again, had a change of heart. So off we went for Sophie's 21st Birthday in June 2015. We decided this would be a great opportunity to embark upon our first USA Roadtrip so after watching the firework display over the Magic Kingdom from Disney's Contemporary Resort we set off for a little adventure all of our own.]]></caption>
+    <caption><![CDATA[After seeing the photos from our trip to Walt Disney World in 2014, Debbie, who had said she never wanted to do Disney again, had a change of heart. So off we went for Sophie's 21st Birthday in June 2015. We decided this would be a great opportunity to embark upon our first USA Roadtrip so after watching the firework display over the Magic Kingdom we set off for a little adventure all of our own.]]></caption>
   </image>
   <image imageURL="images/66.jpg"
 	thumbURL="thumbs/66.jpg"
@@ -105,7 +108,7 @@
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\66.png">
     <title><![CDATA[America 2015]]></title>
-    <caption><![CDATA[On our mini-trip we stopped at Savannah, Atlanta, Charleston and Jacksonville (via Savannah as Henry had left his iPad in the hotel room drawer; apparently that was Amy's fault...) and on way back to Orlando debated whether we would live in Savannah or Charleston when we get our green cards. It was agreed that moving around and seeing different places was definitely the way forward for us.]]></caption>
+    <caption><![CDATA[On our mini-trip we stopped at Savannah, Atlanta, Charleston and Jacksonville and on our  way back to Orlando, we debated whether we would live in Savannah or Charleston when we get our green cards. It was agreed that moving around and seeing different places was definitely the way forward for us.]]></caption>
   </image>
   <image imageURL="images/71.jpg"
 	thumbURL="thumbs/71.jpg"
@@ -113,7 +116,7 @@
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\71.png">
     <title><![CDATA[America 2015]]></title>
-    <caption><![CDATA[Henry & Paul are keen golfers, Amy & Debbie not so much and Sophie fits somewhere in between. Christmas themed mini-golf therefore = perfect compromise. Amy beat Henry and that's all that matters. Christmas decorations in June? Even to us it didn't feel quite right in the heat, it's 4 months early after all right?]]></caption>
+    <caption><![CDATA[Henry & Paul like golf, Amy & Debbie not so much - Sophie fits somewhere in between. Xmas themed mini-golf = perfect compromise.]]></caption>
   </image>
   <image imageURL="images/82.jpg"
 	thumbURL="thumbs/82.jpg"
@@ -121,7 +124,7 @@
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\82.png">
     <title><![CDATA[Italy 2015]]></title>
-    <caption><![CDATA[Debbie had been saying for years that we "must try cruising". "It's not like you think" she'd say so we thought we'd give it a try. So we did. And it wasn't. Seriously, if you haven't already, you must try it.Getting from place to place without the drive in-between and 5 meals a day prepared for you, what more do you need?]]></caption>
+    <caption><![CDATA[Debbie had been saying for years that we "must try cruising". "It's not like you think" she'd say so we thought we'd give it a try. So we did. And it wasn't. Seriously, if you haven't already, you must try it. Waking up in a new place & 5 meals a day prepared for you, what more do you need?]]></caption>
   </image>
   <image imageURL="images/86.jpg"
 	thumbURL="thumbs/86.jpg"
@@ -129,7 +132,7 @@
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\86.png">
     <title><![CDATA[Budapest 2016]]></title>
-    <caption><![CDATA[Had Amy been a bit more switched on she may have thought something was amiss when, at airport security, she lost Henry after going through the scanner. Had she done so, she maybe wouldn't have drank so much red wine on the river cruise on our first night in Budapest which left her feeling a little delicate the following morning. Luckily, by the time night fell and we'd walked up the hill in front of Buda Castle to get to Fisherman's Bastion all was well when Henry suddenly stopped and proposed. Of course Amy said 'yes' and here we are now.]]></caption>
+    <caption><![CDATA[Had Amy been a bit more switched on, she maybe wouldn't have drank so much red wine on the river cruise on our first night in Budapest which left her feeling a little delicate the next morning. Luckily, by the time night fell and we'd walked up the hill in front of Buda Castle to get to Fisherman's Bastion all was well when Henry suddenly stopped and proposed. ]]></caption>
   </image>
   <image imageURL="images/87.jpg"
 	thumbURL="thumbs/87.jpg"
@@ -161,7 +164,7 @@
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\107.png">
     <title><![CDATA[New England 2016]]></title>
-    <caption><![CDATA[After pulling over in a relatively quiet carpark in the Green Mountains, MA, we followed a short trail marked as the 'Round Rock Trail'. Upon reaching the end of trail, the view opened up to reveal rolling hills covered in trees of red, orange and yellow. This is the kind of hidden gem we hope to stumble upon when we visit the Western States.]]></caption>
+    <caption><![CDATA[After pulling over in a quiet carpark in the Green Mountains, MA, we followed a short trail. Upon reaching the end of trail, the view opened up to reveal rolling hills covered in trees of red, orange and yellow. This is the kind of hidden gem we hope to stumble upon when we visit the Western States.]]></caption>
   </image>
   <image imageURL="images/131.jpg"
 	thumbURL="thumbs/131.jpg"
@@ -169,7 +172,7 @@
 	linkTarget="_blank"
 	sourcePath="C:\Users\Henry\Desktop\New folder (3)\131.png">
     <title><![CDATA[Prague 2017]]></title>
-    <caption><![CDATA[To mark 1 year since the Proposal we visited Prague in February 2017. Our only break so far this year so we're definitely looking forward to Tenerife and cannot wait to start our great adventure around the South-West USA next April.]]></caption>
+    <caption><![CDATA[To mark 1 year since the Proposal we visited Prague in February 2017. ]]></caption>
   </image>
   <image imageURL="images/120.jpg"
 	thumbURL="thumbs/120.jpg"
