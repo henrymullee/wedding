@@ -2,7 +2,7 @@
 
 <juiceboxgallery 
 
-	useFullscreenExpand="true"
+	useFullscreenExpand="false"
 	cropToFit="false"
 
 >
